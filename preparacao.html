@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SancaMat</title>
+    <meta name="description" content="Materiais de preparação, problemas exemplo, ementa oficial e bibliografia recomendada para a SancaMat — Olimpíada São-Carlense de Matemática (NEMO - ICMC/USP).">
+    
+    <!-- Metadados para compartilhamento em WhatsApp / Redes Sociais (Open Graph) -->
+    <meta property="og:title" content="Como se Preparar | SancaMat — Olimpíada São-Carlense de Matemática">
+    <meta property="og:description" content="Acesse os cadernos de problemas exemplo, o programa oficial por nível e materiais gratuitos de estudo. Organização: NEMO — ICMC/USP.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="caminho/logo-sancamat.png">
+
+    <!-- Logo na aba do navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="caminho/logo-simplificada.png">
+    
+    <!-- Importação de Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fundo: '#FFF8E7',      /* Cosmic Latte */
+                        secundaria: '#91B4FF', /* Infinite temperature blue */
+                        primaria: '#0047AB',   /* Cobalto / Azul escuro */
+                        verde: '#00A36C',      /* Espectro Cobre */
+                        laranja: '#E25822',    /* Cálcio / Cor do NEMO */
+                        texto: '#16161D'       /* Eigengrau */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+
+        // Abre/fecha o menu mobile e informa o estado a leitores de tela (aria-expanded)
+        function toggleMenu() {
+            const menu = document.getElementById('menu-mobile');
+            const botao = document.getElementById('botao-menu');
+            const aberto = menu.classList.toggle('hidden') === false;
+            botao.setAttribute('aria-expanded', String(aberto));
+        }
+    </script>
+</head>
+<body class="bg-fundo text-texto flex flex-col min-h-screen font-sans">
+
+    <!-- Link de atalho para teclado/leitores de tela (visível apenas ao receber foco) -->
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-primaria focus:font-display focus:font-bold focus:py-2 focus:px-4 focus:rounded-sm focus:shadow-md">
+        Pular para o conteúdo
+    </a>
+
+    <!-- Navegação -->
+    <nav class="bg-texto text-white shadow-md border-b-4 border-laranja relative" aria-label="Navegação principal">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logo Simplificada + Nome (Clicável para voltar ao Início) -->
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-90 transition">
+                <img src="caminho/logo-simplificada.png" alt="Ícone SancaMat" class="h-8 w-8 object-contain bg-white/10 rounded-sm">
+                <span class="font-display font-bold text-2xl tracking-tight">SancaMat</span>
+            </a>
+            
+            <!-- Botão Menu Mobile -->
+            <button id="botao-menu" onclick="toggleMenu()" aria-label="Abrir menu de navegação" aria-controls="menu-mobile" aria-expanded="false" class="md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-secundaria rounded-sm hover:text-secundaria transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Links Desktop -->
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" class="hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" aria-current="page" class="text-secundaria font-semibold border-b-2 border-secundaria pb-0.5">Como se Preparar</a>
+                <a href="resultados.html" class="hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" class="hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+
+        <!-- Links Mobile (Dropdown) -->
+        <div id="menu-mobile" class="hidden md:hidden absolute w-full bg-texto border-t border-white/10 z-50">
+            <div class="flex flex-col px-4 pt-2 pb-4 space-y-2 shadow-lg">
+                <a href="index.html" class="block py-2 hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="block py-2 hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" class="block py-2 hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" aria-current="page" class="block py-2 text-secundaria font-semibold">Como se Preparar</a>
+                <a href="resultados.html" class="block py-2 hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" class="block py-2 hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho da Página -->
+    <header class="w-full bg-primaria text-white py-12 shadow-inner">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                Como se Preparar
+            </h1>
+            <p class="text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                Problemas modelo elaborados pelo NEMO, programa oficial de conteúdos por nível e materiais gratuitos recomendados.
+            </p>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="conteudo" class="flex-grow max-w-6xl mx-auto px-4 py-12 w-full space-y-16">
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 1: CADERNOS DE PROBLEMAS EXEMPLO -->
+        <!-- ========================================== -->
+        <section>
+            <div class="mb-6 space-y-2">
+                <h2 class="font-display text-2xl font-bold text-primaria tracking-tight">
+                    1. Cadernos de Problemas Exemplo (SancaMat)
+                </h2>
+                <p class="text-texto/80 text-sm sm:text-base leading-relaxed max-w-4xl">
+                    Para familiarizar estudantes e professores com o estilo das provas da SancaMat e com a avaliação discursiva da 2ª Fase, disponibilizamos abaixo cadernos preparatórios comentados:
+                </p>
+                <p class="text-texto/80 text-sm sm:text-base leading-relaxed max-w-4xl">
+                    Os cadernos contêm questões objetivas comentadas (modelo 1ª Fase) e problemas abertos com exemplos dos critérios de correção (modelo 2ª Fase).
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card Nível 1 -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block bg-primaria text-white font-display text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-sm mb-3">
+                            Nível 1
+                        </span>
+                        <h3 class="font-display text-xl font-bold text-primaria mb-4">6º e 7º anos (EF)</h3>
+                    </div>
+                    <a href="caminho/exemplos-nivel-1.pdf" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-2.5 px-4 rounded-sm hover:bg-secundaria/10 transition text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Baixar Caderno Nível 1 (PDF)<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                </div>
+
+                <!-- Card Nível 2 -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block bg-primaria text-white font-display text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-sm mb-3">
+                            Nível 2
+                        </span>
+                        <h3 class="font-display text-xl font-bold text-primaria mb-4">8º e 9º anos (EF)</h3>
+                    </div>
+                    <a href="caminho/exemplos-nivel-2.pdf" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-2.5 px-4 rounded-sm hover:bg-secundaria/10 transition text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Baixar Caderno Nível 2 (PDF)<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                </div>
+
+                <!-- Card Nível 3 -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block bg-primaria text-white font-display text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-sm mb-3">
+                            Nível 3
+                        </span>
+                        <h3 class="font-display text-xl font-bold text-primaria mb-4">Ensino Médio</h3>
+                    </div>
+                    <a href="caminho/exemplos-nivel-3.pdf" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-2.5 px-4 rounded-sm hover:bg-secundaria/10 transition text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Baixar Caderno Nível 3 (PDF)<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 2: PROGRAMA OFICIAL (EMENTA POR NÍVEL) -->
+        <!-- ========================================== -->
+        <section>
+            <div class="mb-6">
+                <h2 class="font-display text-2xl font-bold text-primaria tracking-tight mb-2">
+                    2. Programa Oficial de Conteúdos
+                </h2>
+                <p class="text-texto/80 text-sm sm:text-base leading-relaxed">
+                    Clique em cada nível abaixo para consultar a ementa de referência prevista no Anexo I do Regulamento Oficial.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Ementa Nível 1 -->
+                <details class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Nível 1 — 6º e 7º anos do Ensino Fundamental</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Aritmética e Teoria dos Números:</strong> Sistema de numeração decimal; operações com naturais, inteiros e racionais (frações e decimais); divisibilidade, critérios de divisibilidade, números primos, fatoração, MDC e MMC; argumentos elementares de paridade; razão, proporção e porcentagem; medidas de comprimento, área, volume, massa e tempo.</li>
+                            <li><strong>Álgebra Elementar:</strong> Padrões e sequências numéricas ou figurais; expressões algébricas simples e resolução de problemas conduzindo a equações de 1º grau.</li>
+                            <li><strong>Geometria:</strong> Conceitos fundamentais (ponto, reta, segmentos e ângulos); retas paralelas e transversais; soma dos ângulos internos de triângulos e polígonos; cálculo de perímetro e área de figuras planas por composição e decomposição; visualização espacial (planificações de cubos, prismas e pirâmides).</li>
+                            <li><strong>Combinatória e Lógica:</strong> Princípios aditivo e multiplicativo de contagem; problemas de lógica dedutiva, jogos de estratégia, coloração de tabuleiros e princípio da casa dos pombos em versão elementar.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Ementa Nível 2 -->
+                <details class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Nível 2 — 8º e 9º anos do Ensino Fundamental</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p class="font-semibold text-primaria">Todo o conteúdo do Nível 1, acrescido de:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Aritmética e Teoria dos Números:</strong> Teorema Fundamental da Aritmética; Algoritmo da Divisão de Euclides; representação em outras bases; noções de congruência modular (aritmética dos restos) e problemas diofantinos lineares simples.</li>
+                            <li><strong>Álgebra:</strong> Operações com números reais, potenciação e radiciação; produtos notáveis e técnicas de fatoração algébrica; equações e sistemas de 1º e 2º graus (Relações de Girard); desigualdades elementares (incluindo média aritmética e geométrica para dois termos); funções afins e quadráticas.</li>
+                            <li><strong>Geometria Plana:</strong> Congruência e semelhança de triângulos; Teorema de Tales e Teorema de Pitágoras; pontos notáveis do triângulo (baricentro, incentro, circuncentro e ortocentro); ângulos na circunferência e quadriláteros inscritíveis; relações entre áreas de figuras planas; trigonometria no triângulo retângulo.</li>
+                            <li><strong>Combinatória:</strong> Permutações e combinações simples; princípio da casa dos pombos; invariantes em jogos e processos discretos; probabilidade elementar em espaços equiprováveis.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Ementa Nível 3 -->
+                <details class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Nível 3 — Ensino Médio</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p class="font-semibold text-primaria">Todo o conteúdo do Nível 2, acrescido de:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Teoria dos Números:</strong> Aritmética modular (pequeno Teorema de Fermat, Teorema de Euler e Teorema de Wilson); equações diofantinas lineares e não lineares; função piso e parte fracionária.</li>
+                            <li><strong>Álgebra:</strong> Polinômios (divisão, raízes, fatoração); progressões aritméticas e geométricas e recorrências lineares de 1ª e 2ª ordem; funções exponenciais, logarítmicas e trigonométricas; sistemas lineares; princípio da indução finita; desigualdades clássicas (MA-MG, Cauchy-Schwarz).</li>
+                            <li><strong>Geometria Plana, Espacial e Analítica:</strong> Teoremas de Ceva, Menelaus, Ptolomeu e potência de ponto; lei dos senos e dos cossenos; geometria espacial (poliedros, Relação de Euler, volumes de prismas, pirâmides, cilindros, cones e esferas); geometria analítica plana (retas e circunferências).</li>
+                            <li><strong>Combinatória:</strong> Combinações com repetição, princípio da inclusão-exclusão, bijeções, dupla contagem, princípio extremal e noções elementares de grafos.</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 3: MATERIAIS EXTERNOS E BIBLIOGRAFIA -->
+        <!-- ========================================== -->
+        <section class="grid md:grid-cols-2 gap-8">
+            <!-- Portais Online Gratuitos -->
+            <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border border-secundaria/40">
+                <div class="mb-5">
+                    <h3 class="inline-block bg-primaria text-white font-display text-lg font-bold py-2 px-4 rounded-sm tracking-tight">
+                        Portais e Apostilas Gratuitas
+                    </h3>
+                </div>
+                <ul class="space-y-4 text-sm sm:text-base text-texto/90">
+                    <li>
+                        <a href="https://portaldaobmep.impa.br/" target="_blank" rel="noopener noreferrer" class="font-display font-bold text-primaria hover:text-laranja underline transition block">
+                            Portal da Matemática e Acervo da OBMEP (IMPA)<span class="sr-only"> (abre em nova aba)</span>
+                        </a>
+                        <span class="text-texto/80 text-sm">Videoaulas, apostilas do Programa de Iniciação Científica (PIC) e bancos de questões separados por nível.</span>
+                    </li>
+                    <li>
+                        <a href="https://poti.impa.br/" target="_blank" rel="noopener noreferrer" class="font-display font-bold text-primaria hover:text-laranja underline transition block">
+                            Polos Olímpicos de Treinamento Intensivo (POTI)<span class="sr-only"> (abre em nova aba)</span>
+                        </a>
+                        <span class="text-texto/80 text-sm">Listas de problemas e textos teóricos de Álgebra, Combinatória, Geometria e Teoria dos Números.</span>
+                    </li>
+                    <li>
+                        <a href="https://www.obm.org.br/como-se-preparar/provas-e-gabaritos/" target="_blank" rel="noopener noreferrer" class="font-display font-bold text-primaria hover:text-laranja underline transition block">
+                            Provas Anteriores e Revista Eureka! (OBM)<span class="sr-only"> (abre em nova aba)</span>
+                        </a>
+                        <span class="text-texto/80 text-sm">Acervo de provas objetivas e discursivas da Olimpíada Brasileira de Matemática e artigos de treinamento.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Livros de Referência -->
+            <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border border-secundaria/40">
+                <div class="mb-5">
+                    <h3 class="inline-block bg-primaria text-white font-display text-lg font-bold py-2 px-4 rounded-sm tracking-tight">
+                        Bibliografia Recomendada
+                    </h3>
+                </div>
+                <ul class="list-disc pl-5 space-y-3 text-sm sm:text-base text-texto/90 leading-relaxed">
+                    <li>
+                        <strong>Círculos Matemáticos: A Experiência Russa</strong> — Dmitri Fomin, Sergey Genkin e Ilia Itenberg (Publicação IMPA). Excelente introdução ao raciocínio olímpico para os Níveis 1 e 2.
+                    </li>
+                    <li>
+                        <strong>A Arte de Resolver Problemas</strong> — George Pólya. Obra clássica sobre heurísticas e estratégias de investigação matemática.
+                    </li>
+                    <li>
+                        <strong>Coleção A Matemática do Ensino Médio (Vols. 1, 2 e 3)</strong> — Elon Lages Lima, Paulo Cezar Pinto Carvalho, Eduardo Wagner e Augusto César Morgado (SBM). Referência para o Nível 3.
+                    </li>
+                    <li>
+                        <strong>Olimpíadas Brasileiras de Matemática (1ª a 16ª)</strong> — Problemas e Soluções comentadas (SBM).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 4: AVALIAÇÃO DO MATERIAL (INDICADOR AEX) -->
+        <!-- ========================================== -->
+        <section class="bg-white border-l-4 border-laranja p-6 rounded-sm shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+                <h3 class="font-display text-lg font-bold text-primaria">Avalie nosso material de preparação</h3>
+                <p class="text-sm text-texto/80 mt-1">
+                    Estudantes e professores: sua opinião sobre os cadernos de problemas exemplo é utilizada para aprimorar as atividades de extensão do NEMO junto à USP.
+                </p>
+            </div>
+            <a href="LINK_DO_GOOGLE_FORMS_AVALIACAO_MATERIAL" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center shrink-0 bg-white text-laranja border-2 border-laranja font-display font-bold py-2.5 px-6 rounded-sm hover:bg-laranja/10 transition text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-laranja focus-visible:ring-offset-2">
+                Responder Breve Avaliação<span class="sr-only"> (abre em nova aba)</span>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-texto text-fundo py-10 mt-auto border-t-4 border-laranja">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Contatos (Esquerda) -->
+            <div class="mb-8 md:mb-0 text-center md:text-left flex flex-col space-y-4">
+                <div>
+                    <p class="font-display font-bold text-xl text-secundaria tracking-tight mb-2">SancaMat</p>
+                    <p class="text-sm text-fundo/70">Olimpíada São-Carlense de Matemática</p>
+                    <p class="text-sm text-fundo/70">Núcleo de Estudos de Matemática Olímpica</p>
+                    <p class="text-sm text-fundo/70">Instituto de Ciências Matemáticas e de Computação</p>
+                    <p class="text-sm text-fundo/70">Universidade de São Paulo</p>
+                </div>
+                <div class="text-sm space-y-1 mt-4">
+                    <p>E-mail: <a href="mailto:[EMAIL_OFICIAL]" class="hover:text-secundaria transition">[EMAIL_OFICIAL]</a></p>
+                    <p>Instagram: <a href="LINK_DO_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="text-secundaria hover:text-white transition">[@PERFIL_INSTAGRAM]<span class="sr-only"> (abre em nova aba)</span></a></p>
+                </div>
+            </div>
+
+            <!-- Logos das Instituições (Direita) -->
+            <div class="flex flex-wrap justify-center items-center gap-6 bg-white p-4 rounded-sm">
+                <img src="caminho/logo-nemo.png" alt="Logo NEMO" class="h-16 sm:h-20 object-contain">
+                <img src="caminho/logo-icmc.png" alt="Logo ICMC" class="h-16 sm:h-20 object-contain">
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SancaMat</title>
+    <meta name="description" content="Inscrição de escolas e painel do Professor Coordenador da SancaMat — Olimpíada São-Carlense de Matemática (NEMO - ICMC/USP).">
+    
+    <!-- Metadados para compartilhamento em WhatsApp / Redes Sociais (Open Graph) -->
+    <meta property="og:title" content="Inscrição | SancaMat — Olimpíada São-Carlense de Matemática">
+    <meta property="og:description" content="Cadastre sua escola gratuitamente na I Olimpíada São-Carlense de Matemática. Organização: NEMO — ICMC/USP.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="caminho/logo-sancamat.png">
+
+    <!-- Logo na aba do navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="caminho/logo-simplificada.png">
+    
+    <!-- Importação de Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fundo: '#FFF8E7',      /* Cosmic Latte */
+                        secundaria: '#91B4FF', /* Infinite temperature blue */
+                        primaria: '#0047AB',   /* Cobalto / Azul escuro */
+                        verde: '#00A36C',      /* Espectro Cobre */
+                        laranja: '#E25822',    /* Cálcio / Cor do NEMO */
+                        texto: '#16161D'       /* Eigengrau */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+
+        // Abre/fecha o menu mobile e informa o estado a leitores de tela (aria-expanded)
+        function toggleMenu() {
+            const menu = document.getElementById('menu-mobile');
+            const botao = document.getElementById('botao-menu');
+            const aberto = menu.classList.toggle('hidden') === false;
+            botao.setAttribute('aria-expanded', String(aberto));
+        }
+    </script>
+</head>
+<body class="bg-fundo text-texto flex flex-col min-h-screen font-sans">
+
+    <!-- Link de atalho para teclado/leitores de tela (visível apenas ao receber foco) -->
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-primaria focus:font-display focus:font-bold focus:py-2 focus:px-4 focus:rounded-sm focus:shadow-md">
+        Pular para o conteúdo
+    </a>
+
+    <!-- Navegação -->
+    <nav class="bg-texto text-white shadow-md border-b-4 border-laranja relative" aria-label="Navegação principal">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logo Simplificada + Nome (Clicável para voltar ao Início) -->
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-90 transition">
+                <img src="caminho/logo-simplificada.png" alt="Ícone SancaMat" class="h-8 w-8 object-contain bg-white/10 rounded-sm">
+                <span class="font-display font-bold text-2xl tracking-tight">SancaMat</span>
+            </a>
+            
+            <!-- Botão Menu Mobile -->
+            <button id="botao-menu" onclick="toggleMenu()" aria-label="Abrir menu de navegação" aria-controls="menu-mobile" aria-expanded="false" class="md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-secundaria rounded-sm hover:text-secundaria transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Links Desktop -->
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" aria-current="page" class="text-secundaria font-semibold border-b-2 border-secundaria pb-0.5">Inscrição</a>
+                <a href="regulamento.html" class="hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" class="hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" class="hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" class="hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+
+        <!-- Links Mobile (Dropdown) -->
+        <div id="menu-mobile" class="hidden md:hidden absolute w-full bg-texto border-t border-white/10 z-50">
+            <div class="flex flex-col px-4 pt-2 pb-4 space-y-2 shadow-lg">
+                <a href="index.html" class="block py-2 hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" aria-current="page" class="block py-2 text-secundaria font-semibold">Inscrição</a>
+                <a href="regulamento.html" class="block py-2 hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" class="block py-2 hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" class="block py-2 hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" class="block py-2 hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho da Página -->
+    <header class="w-full bg-primaria text-white py-12 shadow-inner">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                Inscrição e Painel do Professor
+            </h1>
+            <p class="text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                Todas as etapas operacionais da SancaMat são realizadas pelos formulários abaixo, sem necessidade de criação de uma conta ou senha.
+            </p>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="conteudo" class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+
+        <!-- Caixa de Regras Essenciais de Inscrição -->
+        <div class="bg-white border-l-4 border-laranja p-6 rounded-sm shadow-sm mb-10">
+            <h2 class="font-display text-lg font-bold text-primaria mb-3">Como funciona a participação na 1ª Edição</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base text-texto/90">
+                <li><strong>Inscrição gratuita e exclusiva por escola:</strong> O cadastro deve ser realizado por um professor representante da instituição de ensino.</li>
+                <li><strong>Estudantes não podem inscrever-se individualmente:</strong> Para estudantes que queiram participar da competição, recomendamos que contatem um professor que possa representar sua escola para que realize o cadastro.</li>
+                <li><strong>Sem cadastro nominal prévio na 1ª Fase:</strong> O professor <strong>não</strong> precisa inscrever individualmente todos os alunos que participarão antes da 1ª Fase. Basta inscrever a escola, receber os PDFs das provas, aplicá-las e corrigi-las internamente. Apenas os alunos classificados para a 2ª Fase devem ser cadastrados.</li>
+            </ul>
+        </div>
+
+        <!-- Trilha de Etapas Operacionais -->
+        <div class="space-y-8">
+
+            <!-- ========================================== -->
+            <!-- ETAPA 1: CADASTRO DA ESCOLA (EXEMPLO ATIVO) -->
+            <!-- ========================================== -->
+            <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border-2 border-primaria relative">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4 border-b border-gray-100 pb-4">
+                    <div>
+                        <span class="font-display text-xs font-bold uppercase tracking-wider text-primaria block">Etapa 1</span>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-primaria tracking-tight">
+                            Cadastro da Escola (1ª Fase)
+                        </h3>
+                    </div>
+                    <!-- Selo de Status (Verde = Aberto) -->
+                    <span class="self-start sm:self-center bg-verde/15 text-verde border border-verde/30 font-display text-xs font-bold px-3 py-1 rounded-sm whitespace-nowrap">
+                        Inscrições Abertas: [DD/MM] a [DD/MM]
+                    </span>
+                </div>
+
+                <p class="text-texto/80 text-sm sm:text-base mb-4 leading-relaxed">
+                    Cadastre sua unidade escolar para receber no e-mail do Professor Coordenador os cadernos de prova (Níveis 1, 2 e 3) e o gabarito oficial da 1ª Fase até o dia <strong>[DD/MM]</strong>.
+                </p>
+
+                <div class="bg-fundo p-4 rounded-sm border border-secundaria/40 mb-6 text-sm">
+                    <p class="font-display font-bold text-primaria mb-2">Dados solicitados no formulário:</p>
+                    <ol class="list-decimal pl-5 space-y-1 text-texto/90">
+                        <li>Nome oficial da escola, CNPJ, endereço e categoria (Pública Não Seletiva, Pública Seletiva ou Privada);</li>
+                        <li><strong>Código INEP da escola</strong> (8 dígitos — caso não saiba, <a href="https://qedu.org.br/" target="_blank" rel="noopener noreferrer" class="text-primaria underline font-semibold hover:text-laranja transition">consulte o código da escola aqui<span class="sr-only"> (abre em nova aba)</span></a>);</li>
+                        <li>Nome completo, CPF, e-mail e celular (com WhatsApp) do Professor Coordenador responsável.</li>
+                    </ol>
+                </div>
+
+                <!-- Botão Ativo -->
+                <a href="LINK_DO_GOOGLE_FORMS_ETAPA_1" target="_blank" rel="noopener noreferrer" class="inline-block w-full sm:w-auto text-center bg-laranja text-white border-2 border-laranja font-display font-bold py-3 px-8 rounded-sm hover:bg-laranja/90 transition shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                    Inscrever Escola na SancaMat<span class="sr-only"> (abre em nova aba)</span>
+                </a>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- ETAPA 2: RELATÓRIO DA 1ª FASE E CLASSIFICADOS -->
+            <!-- ========================================== -->
+            <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border border-secundaria/40">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4 border-b border-gray-100 pb-4">
+                    <div>
+                        <span class="font-display text-xs font-bold uppercase tracking-wider text-texto/60 block">Etapa 2</span>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-primaria tracking-tight">
+                            Relatório da 1ª Fase e Indicação de Classificados
+                        </h3>
+                    </div>
+                    <!-- Selo de Status (Cinza = Aguardando) -->
+                    <span class="self-start sm:self-center bg-gray-100 text-texto/70 border border-gray-300 font-display text-xs font-bold px-3 py-1 rounded-sm whitespace-nowrap">
+                        Prazo: até [DD/MM]
+                    </span>
+                </div>
+
+                <p class="text-texto/80 text-sm sm:text-base mb-4 leading-relaxed">
+                    Após aplicar e corrigir a 1ª Fase na escola usando o gabarito oficial, o Professor Coordenador deverá informar o total de alunos participantes por nível e enviar a planilha padrão com os dados nominais dos estudantes classificados dentro da cota da escola.
+                </p>
+
+                <div class="bg-secundaria/10 p-4 rounded-sm border-l-4 border-primaria mb-6 text-sm text-texto/90">
+                    <strong class="font-display text-primaria">Vaga de Equidade de Gênero (Item 6.3 do Regulamento):</strong> Caso todos os estudantes classificados pela cota regular em determinado nível na escola sejam do mesmo gênero, a escola tem direito a indicar <strong>1 (uma) vaga adicional</strong> para o estudante de gênero distinto de maior nota naquele nível que tenha atingido a pontuação mínima.
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <!-- Link para baixar a planilha modelo de classificados -->
+                    <a href="caminho/planilha-classificados-sancamat.xlsx" class="w-full sm:w-auto text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-3 px-6 rounded-sm hover:bg-secundaria/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Baixar Planilha Modelo (.xlsx)
+                    </a>
+
+                    <!-- Botão Desabilitado (Para ativar: troque este <span> pelo <a> comentado abaixo) -->
+                    <span class="w-full sm:w-auto text-center bg-gray-200 text-texto/50 border-2 border-gray-200 font-display font-bold py-3 px-8 rounded-sm cursor-not-allowed">
+                        Formulário disponível após a 1ª Fase
+                    </span>
+                    <!-- 
+                    <a href="LINK_DO_GOOGLE_FORMS_ETAPA_2" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-laranja text-white border-2 border-laranja font-display font-bold py-3 px-8 rounded-sm hover:bg-laranja/90 transition shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Enviar Relatório e Classificados<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                    -->
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- ETAPA 3: CONFIRMAÇÃO 2ª FASE, TERMOS E ACESSIBILIDADE -->
+            <!-- ========================================== -->
+            <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border border-secundaria/40">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4 border-b border-gray-100 pb-4">
+                    <div>
+                        <span class="font-display text-xs font-bold uppercase tracking-wider text-texto/60 block">Etapa 3</span>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-primaria tracking-tight">
+                            Confirmação da 2ª Fase, Termo de Autorização e Acessibilidade
+                        </h3>
+                    </div>
+                    <span class="self-start sm:self-center bg-gray-100 text-texto/70 border border-gray-300 font-display text-xs font-bold px-3 py-1 rounded-sm whitespace-nowrap">
+                        Período: [DD/MM] a [DD/MM]
+                    </span>
+                </div>
+
+                <p class="text-texto/80 text-sm sm:text-base mb-6 leading-relaxed">
+                    Etapa obrigatória para confirmar a presença dos estudantes convocados para a prova presencial no ICMC-USP, enviar o Termo de Autorização e Uso de Imagem assinado pelos responsáveis legais e solicitar atendimento especializado (candidatos PcD, neurodivergentes com TEA/TDAH mediante laudo/CIPTEA, ou sabatistas).
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <!-- Link para baixar o PDF do Termo de Autorização -->
+                    <a href="caminho/termo-autorizacao-sancamat.pdf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-3 px-6 rounded-sm hover:bg-secundaria/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Baixar Modelo do Termo (PDF)<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+
+                    <!-- Botão Desabilitado -->
+                    <span class="w-full sm:w-auto text-center bg-gray-200 text-texto/50 border-2 border-gray-200 font-display font-bold py-3 px-8 rounded-sm cursor-not-allowed">
+                        Confirmação disponível em [DD/MM]
+                    </span>
+                    <!-- 
+                    <a href="LINK_DO_GOOGLE_FORMS_ETAPA_3" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-laranja text-white border-2 border-laranja font-display font-bold py-3 px-8 rounded-sm hover:bg-laranja/90 transition shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Confirmar Presença na 2ª Fase<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                    -->
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- ETAPA 4: RECURSOS E AVALIAÇÃO DE IMPACTO (AEX-USP) -->
+            <!-- ========================================== -->
+            <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border border-secundaria/40">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4 border-b border-gray-100 pb-4">
+                    <div>
+                        <span class="font-display text-xs font-bold uppercase tracking-wider text-texto/60 block">Etapa 4</span>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-primaria tracking-tight">
+                            Recursos da 2ª Fase e Avaliação de Impacto (USP)
+                        </h3>
+                    </div>
+                    <span class="self-start sm:self-center bg-gray-100 text-texto/70 border border-gray-300 font-display text-xs font-bold px-3 py-1 rounded-sm whitespace-nowrap">
+                        Pós-Prova: [DD/MM]
+                    </span>
+                </div>
+
+                <p class="text-texto/80 text-sm sm:text-base mb-6 leading-relaxed">
+                    Espaço destinado à submissão de pedidos de revisão de nota da 2ª Fase pelo Professor Coordenador (em até 48h após a publicação das notas preliminares) e ao preenchimento do formulário institucional de avaliação da atividade de extensão junto à Comissão de Cultura e Extensão (CCEx-ICMC/USP).
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <!-- Botão Recursos Desabilitado -->
+                    <span class="w-full sm:w-auto text-center bg-gray-200 text-texto/50 border-2 border-gray-200 font-display font-bold py-3 px-6 rounded-sm cursor-not-allowed">
+                        Formulário de Recursos (Indisponível)
+                    </span>
+
+                    <!-- Botão Avaliação AEX Desabilitado -->
+                    <span class="w-full sm:w-auto text-center bg-gray-200 text-texto/50 border-2 border-gray-200 font-display font-bold py-3 px-6 rounded-sm cursor-not-allowed">
+                        Avaliação de Impacto — USP (Indisponível)
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-texto text-fundo py-10 mt-auto border-t-4 border-laranja">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Contatos (Esquerda) -->
+            <div class="mb-8 md:mb-0 text-center md:text-left flex flex-col space-y-4">
+                <div>
+                    <p class="font-display font-bold text-xl text-secundaria tracking-tight mb-2">SancaMat</p>
+                    <p class="text-sm text-fundo/70">Olimpíada São-Carlense de Matemática</p>
+                    <p class="text-sm text-fundo/70">Núcleo de Estudos de Matemática Olímpica</p>
+                    <p class="text-sm text-fundo/70">Instituto de Ciências Matemáticas e de Computação</p>
+                    <p class="text-sm text-fundo/70">Universidade de São Paulo</p>
+                </div>
+                <div class="text-sm space-y-1 mt-4">
+                    <p>E-mail: <a href="mailto:[EMAIL_OFICIAL]" class="hover:text-secundaria transition">[EMAIL_OFICIAL]</a></p>
+                    <p>Instagram: <a href="LINK_DO_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="text-secundaria hover:text-white transition">[@PERFIL_INSTAGRAM]<span class="sr-only"> (abre em nova aba)</span></a></p>
+                </div>
+            </div>
+
+            <!-- Logos das Instituições (Direita) -->
+            <div class="flex flex-wrap justify-center items-center gap-6 bg-white p-4 rounded-sm">
+                <img src="caminho/logo-nemo.png" alt="Logo NEMO" class="h-16 sm:h-20 object-contain">
+                <img src="caminho/logo-icmc.png" alt="Logo ICMC" class="h-16 sm:h-20 object-contain">
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

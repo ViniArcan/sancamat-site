@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SancaMat</title>
+    <meta name="description" content="Perguntas frequentes, canais de atendimento e como chegar ao ICMC-USP para a 2ª Fase e a Premiação da SancaMat — Olimpíada São-Carlense de Matemática.">
+    
+    <!-- Metadados para compartilhamento em WhatsApp / Redes Sociais (Open Graph) -->
+    <meta property="og:title" content="Contato e Perguntas Frequentes | SancaMat — Olimpíada São-Carlense de Matemática">
+    <meta property="og:description" content="Tire suas dúvidas, fale com a comissão organizadora e saiba como chegar ao local da 2ª Fase. Organização: NEMO — ICMC/USP.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="caminho/logo-sancamat.png">
+
+    <!-- Logo na aba do navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="caminho/logo-simplificada.png">
+    
+    <!-- Importação de Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fundo: '#FFF8E7',      /* Cosmic Latte */
+                        secundaria: '#91B4FF', /* Infinite temperature blue */
+                        primaria: '#0047AB',   /* Cobalto / Azul escuro */
+                        verde: '#00A36C',      /* Espectro Cobre */
+                        laranja: '#E25822',    /* Cálcio / Cor do NEMO */
+                        texto: '#16161D'       /* Eigengrau */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+
+        // Abre/fecha o menu mobile e informa o estado a leitores de tela (aria-expanded)
+        function toggleMenu() {
+            const menu = document.getElementById('menu-mobile');
+            const botao = document.getElementById('botao-menu');
+            const aberto = menu.classList.toggle('hidden') === false;
+            botao.setAttribute('aria-expanded', String(aberto));
+        }
+    </script>
+</head>
+<body class="bg-fundo text-texto flex flex-col min-h-screen font-sans">
+
+    <!-- Link de atalho para teclado/leitores de tela (visível apenas ao receber foco) -->
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-primaria focus:font-display focus:font-bold focus:py-2 focus:px-4 focus:rounded-sm focus:shadow-md">
+        Pular para o conteúdo
+    </a>
+
+    <!-- Navegação -->
+    <nav class="bg-texto text-white shadow-md border-b-4 border-laranja relative" aria-label="Navegação principal">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logo Simplificada + Nome (Clicável para voltar ao Início) -->
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-90 transition">
+                <img src="caminho/logo-simplificada.png" alt="Ícone SancaMat" class="h-8 w-8 object-contain bg-white/10 rounded-sm">
+                <span class="font-display font-bold text-2xl tracking-tight">SancaMat</span>
+            </a>
+            
+            <!-- Botão Menu Mobile -->
+            <button id="botao-menu" onclick="toggleMenu()" aria-label="Abrir menu de navegação" aria-controls="menu-mobile" aria-expanded="false" class="md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-secundaria rounded-sm hover:text-secundaria transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Links Desktop -->
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" class="hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" class="hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" class="hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" aria-current="page" class="text-secundaria font-semibold border-b-2 border-secundaria pb-0.5">Contato</a>
+            </div>
+        </div>
+
+        <!-- Links Mobile (Dropdown) -->
+        <div id="menu-mobile" class="hidden md:hidden absolute w-full bg-texto border-t border-white/10 z-50">
+            <div class="flex flex-col px-4 pt-2 pb-4 space-y-2 shadow-lg">
+                <a href="index.html" class="block py-2 hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="block py-2 hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" class="block py-2 hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" class="block py-2 hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" class="block py-2 hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" aria-current="page" class="block py-2 text-secundaria font-semibold">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho da Página -->
+    <header class="w-full bg-primaria text-white py-12 shadow-inner">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                Contato e Perguntas Frequentes
+            </h1>
+            <p class="text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                Antes de escrever para a comissão, confira se sua dúvida já está respondida abaixo. Aqui você também encontra os canais de atendimento e como chegar ao local da 2ª Fase.
+            </p>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="conteudo" class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full space-y-14">
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 1: PERGUNTAS FREQUENTES              -->
+        <!-- ========================================== -->
+        <section aria-labelledby="titulo-faq">
+            <h2 id="titulo-faq" class="font-display text-2xl font-bold text-primaria tracking-tight mb-6">Perguntas Frequentes</h2>
+
+            <div class="space-y-4">
+
+                <!-- Pergunta 1 -->
+                <details id="faq-inscricao-individual" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Minha escola não se inscreveu. Posso me inscrever individualmente?</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p>Não. A inscrição é feita exclusivamente pela escola. Converse com o seu professor e peça que ele inscreva a escola — o cadastro leva cerca de 2 minutos.</p>
+                        <p>O professor encontra o passo a passo na página de <a href="inscricao.html" class="text-primaria underline font-semibold hover:text-laranja transition">Inscrição</a>.</p>
+                    </div>
+                </details>
+
+                <!-- Pergunta 2 -->
+                <details id="faq-cadastro-nominal" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>O professor precisa digitar o nome de todos os alunos da escola para aplicar a 1ª Fase?</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p>Não. Para a 1ª Fase basta o cadastro da escola: o professor recebe as provas por e-mail, aplica e corrige internamente. Somente os estudantes classificados para a 2ª Fase são cadastrados nominalmente.</p>
+                    </div>
+                </details>
+
+                <!-- Pergunta 3 -->
+                <details id="faq-inep" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Onde encontro o Código INEP da minha escola?</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p>O Código INEP tem 8 dígitos. Para encontrá-lo, <a href="https://qedu.org.br/" target="_blank" rel="noopener noreferrer" class="text-primaria underline font-semibold hover:text-laranja transition">busque o nome da escola no QEdu<span class="sr-only"> (abre em nova aba)</span></a> e consulte a página da escola.</p>
+                    </div>
+                </details>
+
+                <!-- Pergunta 4 -->
+                <details id="faq-atendimento-especializado" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Como solicitar atendimento para alunos PcD, neurodivergentes ou sabatistas na 2ª Fase?</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p>A solicitação é feita no formulário de confirmação da 2ª Fase (Etapa 3 da página de <a href="inscricao.html" class="text-primaria underline font-semibold hover:text-laranja transition">Inscrição</a>), dentro do prazo informado no próprio formulário. É necessário anexar o documento comprobatório:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Candidatos PcD e neurodivergentes (TEA/TDAH):</strong> laudo médico (ou CIPTEA, quando for o caso);</li>
+                            <li><strong>Sabatistas:</strong> declaração.</li>
+                        </ul>
+                        <p>Veja também o <a href="regulamento.html#topico-7" class="text-primaria underline font-semibold hover:text-laranja transition">item 7 do Regulamento</a>.</p>
+                        <p class="bg-fundo p-3 rounded-sm border-l-4 border-laranja text-sm"><strong>Atenção:</strong> laudos contêm dados sensíveis de saúde. Envie-os <strong>somente pelo formulário</strong> — não por e-mail nem pelo Instagram.</p>
+                    </div>
+                </details>
+
+                <!-- Pergunta 5 -->
+                <details id="faq-documento-2a-fase" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>O aluno precisa levar algum documento no dia da 2ª Fase?</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p>Sim. Para entrar na sala de prova no ICMC-USP, o estudante deve apresentar um <strong>documento oficial de identificação com foto</strong> (RG, CIN, Passaporte ou carteirinha escolar oficial com foto), além de levar seu material permitido (lápis, borracha, régua, compasso e caneta esferográfica azul ou preta).</p>
+                        <p>Os portões abrem 1 hora antes e fecham pontualmente <strong>15 minutos antes</strong> do início da prova. Não é permitida a entrada após o fechamento dos portões.</p>
+                    </div>
+                </details>
+
+                <!-- Pergunta 6 -->
+                <details id="faq-acompanhante" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>O responsável pode acompanhar o aluno no ICMC-USP?</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                        <p>Sim, recomendamos que os estudantes menores de idade compareçam acompanhados por um adulto responsável ou professor. Durante a aplicação da prova, os acompanhantes não poderão permanecer nos corredores das salas de exame, mas poderão aguardar nas áreas de convivência abertas do campus (como o vão da Biblioteca Achille Bassi e os jardins do ICMC).</p>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 2: CANAIS DE ATENDIMENTO             -->
+        <!-- ========================================== -->
+        <section aria-labelledby="titulo-canais">
+            <h2 id="titulo-canais" class="font-display text-2xl font-bold text-primaria tracking-tight mb-6">Canais de Atendimento e Divulgação</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- Card: E-mail (canal oficial) -->
+                <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border-2 border-primaria flex flex-col">
+                    <span class="font-display text-xs font-bold uppercase tracking-wider text-primaria block mb-1">Atendimento</span>
+                    <h3 class="font-display text-xl font-bold text-primaria tracking-tight mb-3">E-mail</h3>
+                    <p class="text-texto/80 text-sm sm:text-base leading-relaxed mb-4">
+                        Para dúvidas que não estejam respondidas acima, escreva para a comissão organizadora.
+                    </p>
+
+                    <div class="bg-fundo p-4 rounded-sm border-l-4 border-laranja mb-6 text-sm text-texto/90">
+                        <strong class="font-display text-primaria">Professores:</strong> inclua no assunto do e-mail o nome da escola e o Código INEP, no formato <strong>[Nome da Escola - INEP]</strong>. Isso agiliza a resposta.
+                    </div>
+
+                    <!-- O assunto já abre preenchido com o modelo "[Nome da Escola - INEP] " -->
+                    <a href="mailto:[EMAIL_OFICIAL]?subject=%5BNome%20da%20Escola%20-%20INEP%5D%20" class="mt-auto inline-block w-full text-center bg-laranja text-white border-2 border-laranja font-display font-bold py-3 px-6 rounded-sm hover:bg-laranja/90 transition shadow-sm break-words focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        [EMAIL_OFICIAL]
+                    </a>
+                </div>
+
+                <!-- Card: Instagram (somente divulgação) -->
+                <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border border-secundaria/40 flex flex-col">
+                    <span class="font-display text-xs font-bold uppercase tracking-wider text-texto/60 block mb-1">Divulgação</span>
+                    <h3 class="font-display text-xl font-bold text-primaria tracking-tight mb-3">Instagram</h3>
+                    <p class="text-texto/80 text-sm sm:text-base leading-relaxed mb-4">
+                        Acompanhe novidades, avisos e bastidores da SancaMat.
+                    </p>
+
+                    <div class="bg-secundaria/10 p-4 rounded-sm border-l-4 border-primaria mb-6 text-sm text-texto/90">
+                        <strong class="font-display text-primaria">Importante:</strong> o perfil serve apenas para divulgação. <strong>Não é um canal de atendimento</strong> e as mensagens enviadas ali podem não ser respondidas. Para dúvidas, use o e-mail oficial.
+                    </div>
+
+                    <a href="LINK_DO_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block w-full text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-3 px-6 rounded-sm hover:bg-secundaria/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        [@PERFIL_INSTAGRAM]<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 3: LOCALIZAÇÃO DA 2ª FASE E PREMIAÇÃO -->
+        <!-- ========================================== -->
+        <section aria-labelledby="titulo-local">
+            <h2 id="titulo-local" class="font-display text-2xl font-bold text-primaria tracking-tight mb-2">Onde será a 2ª Fase e a Premiação</h2>
+            <p class="text-texto/80 text-sm sm:text-base leading-relaxed mb-6">
+                A prova da 2ª Fase e a Cerimônia de Premiação acontecem presencialmente no campus da USP em São Carlos.
+            </p>
+
+            <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border border-secundaria/40 space-y-6">
+
+                <!-- Endereço -->
+                <div>
+                    <h3 class="font-display text-lg font-bold text-primaria mb-2">Endereço</h3>
+                    <address class="not-italic text-texto/90 leading-relaxed">
+                        <strong>Instituto de Ciências Matemáticas e de Computação (ICMC-USP)</strong><br>
+                        Av. Trabalhador São-Carlense, 400 — Centro<br>
+                        São Carlos — SP
+                    </address>
+                </div>
+
+                <!-- Datas e portarias -->
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-fundo p-4 rounded-sm border border-secundaria/40 text-sm">
+                        <p class="font-display font-bold text-primaria mb-2">2ª Fase (Prova)</p>
+                        <ul class="space-y-1 text-texto/90">
+                            <li><strong>Data:</strong> [DD/MM] (fim de semana)</li>
+                            <li><strong>Horário:</strong> [HH:MM]</li>
+                            <li><strong>Portaria de acesso:</strong> [PORTARIA A DEFINIR]</li>
+                        </ul>
+                    </div>
+                    <div class="bg-fundo p-4 rounded-sm border border-secundaria/40 text-sm">
+                        <p class="font-display font-bold text-primaria mb-2">Cerimônia de Premiação</p>
+                        <ul class="space-y-1 text-texto/90">
+                            <li><strong>Data:</strong> [DD/MM] (fim de semana)</li>
+                            <li><strong>Horário:</strong> [HH:MM]</li>
+                            <li><strong>Portaria de acesso:</strong> [PORTARIA A DEFINIR]</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mapa -->
+                <div>
+                    <h3 class="font-display text-lg font-bold text-primaria mb-3">Mapa</h3>
+                    <div class="aspect-video w-full overflow-hidden rounded-sm border border-secundaria/40">
+                        <iframe
+                            title="Mapa do Google mostrando a localização do ICMC-USP, na Av. Trabalhador São-Carlense, 400, São Carlos"
+                            src="https://www.google.com/maps?q=ICMC+USP+Av.+Trabalhador+S%C3%A3o-carlense+400+S%C3%A3o+Carlos&amp;output=embed"
+                            class="w-full h-full border-0"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-sm text-texto/70 mt-3">
+                        Não consegue visualizar o mapa?
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=ICMC+USP+Av.+Trabalhador+S%C3%A3o-carlense+400+S%C3%A3o+Carlos" target="_blank" rel="noopener noreferrer" class="text-primaria underline font-semibold hover:text-laranja transition">Abrir no Google Maps<span class="sr-only"> (abre em nova aba)</span></a>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-texto text-fundo py-10 mt-auto border-t-4 border-laranja">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Contatos (Esquerda) -->
+            <div class="mb-8 md:mb-0 text-center md:text-left flex flex-col space-y-4">
+                <div>
+                    <p class="font-display font-bold text-xl text-secundaria tracking-tight mb-2">SancaMat</p>
+                    <p class="text-sm text-fundo/70">Olimpíada São-Carlense de Matemática</p>
+                    <p class="text-sm text-fundo/70">Núcleo de Estudos de Matemática Olímpica</p>
+                    <p class="text-sm text-fundo/70">Instituto de Ciências Matemáticas e de Computação</p>
+                    <p class="text-sm text-fundo/70">Universidade de São Paulo</p>
+                </div>
+                <div class="text-sm space-y-1 mt-4">
+                    <p>E-mail: <a href="mailto:[EMAIL_OFICIAL]" class="hover:text-secundaria transition">[EMAIL_OFICIAL]</a></p>
+                    <p>Instagram: <a href="LINK_DO_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="text-secundaria hover:text-white transition">[@PERFIL_INSTAGRAM]<span class="sr-only"> (abre em nova aba)</span></a></p>
+                </div>
+            </div>
+
+            <!-- Logos das Instituições (Direita) -->
+            <div class="flex flex-wrap justify-center items-center gap-6 bg-white p-4 rounded-sm">
+                <img src="caminho/logo-nemo.png" alt="Logo NEMO" class="h-16 sm:h-20 object-contain">
+                <img src="caminho/logo-icmc.png" alt="Logo ICMC" class="h-16 sm:h-20 object-contain">
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Abre automaticamente a pergunta do FAQ quando a URL traz uma âncora (ex.: contato.html#faq-inep) -->
+    <script>
+        function abrirPerguntaDaAncora() {
+            const id = decodeURIComponent(window.location.hash.slice(1));
+            const alvo = id ? document.getElementById(id) : null;
+            if (alvo && alvo.tagName === 'DETAILS') {
+                alvo.open = true;
+                alvo.scrollIntoView();
+            }
+        }
+        window.addEventListener('load', abrirPerguntaDaAncora);
+        window.addEventListener('hashchange', abrirPerguntaDaAncora);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SancaMat</title>
+    <meta name="description" content="Regulamento oficial da I Olimpíada São-Carlense de Matemática (SancaMat). Conheça as regras, níveis, formato das provas e critérios de premiação.">
+    
+    <!-- Metadados para compartilhamento em WhatsApp / Redes Sociais (Open Graph) -->
+    <meta property="og:title" content="Regulamento | SancaMat — Olimpíada São-Carlense de Matemática">
+    <meta property="og:description" content="Consulte as regras completas, cronograma e critérios de premiação da I SancaMat. Organização: NEMO — ICMC/USP.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="caminho/logo-sancamat.png">
+
+    <!-- Logo na aba do navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="caminho/logo-simplificada.png">
+    
+    <!-- Importação de Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fundo: '#FFF8E7',      /* Cosmic Latte */
+                        secundaria: '#91B4FF', /* Infinite temperature blue */
+                        primaria: '#0047AB',   /* Cobalto / Azul escuro */
+                        verde: '#00A36C',      /* Espectro Cobre */
+                        laranja: '#E25822',    /* Cálcio / Cor do NEMO */
+                        texto: '#16161D'       /* Eigengrau */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+
+        // Abre/fecha o menu mobile e informa o estado a leitores de tela (aria-expanded)
+        function toggleMenu() {
+            const menu = document.getElementById('menu-mobile');
+            const botao = document.getElementById('botao-menu');
+            const aberto = menu.classList.toggle('hidden') === false;
+            botao.setAttribute('aria-expanded', String(aberto));
+        }
+    </script>
+</head>
+<body class="bg-fundo text-texto flex flex-col min-h-screen font-sans">
+
+    <!-- Link de atalho para teclado/leitores de tela (visível apenas ao receber foco) -->
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-primaria focus:font-display focus:font-bold focus:py-2 focus:px-4 focus:rounded-sm focus:shadow-md">
+        Pular para o conteúdo
+    </a>
+
+    <!-- Navegação -->
+    <nav class="bg-texto text-white shadow-md border-b-4 border-laranja relative" aria-label="Navegação principal">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logo Simplificada + Nome (Clicável para voltar ao Início) -->
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-90 transition">
+                <img src="caminho/logo-simplificada.png" alt="Ícone SancaMat" class="h-8 w-8 object-contain bg-white/10 rounded-sm">
+                <span class="font-display font-bold text-2xl tracking-tight">SancaMat</span>
+            </a>
+            
+            <!-- Botão Menu Mobile -->
+            <button id="botao-menu" onclick="toggleMenu()" aria-label="Abrir menu de navegação" aria-controls="menu-mobile" aria-expanded="false" class="md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-secundaria rounded-sm hover:text-secundaria transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Links Desktop -->
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" aria-current="page" class="text-secundaria font-semibold border-b-2 border-secundaria pb-0.5">Regulamento</a>
+                <a href="preparacao.html" class="hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" class="hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" class="hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+
+        <!-- Links Mobile (Dropdown) -->
+        <div id="menu-mobile" class="hidden md:hidden absolute w-full bg-texto border-t border-white/10 z-50">
+            <div class="flex flex-col px-4 pt-2 pb-4 space-y-2 shadow-lg">
+                <a href="index.html" class="block py-2 hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="block py-2 hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" aria-current="page" class="block py-2 text-secundaria font-semibold">Regulamento</a>
+                <a href="preparacao.html" class="block py-2 hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" class="block py-2 hover:text-secundaria transition">Provas e Resultados</a>
+                <a href="contato.html" class="block py-2 hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho da Página -->
+    <header class="w-full bg-primaria text-white py-12 shadow-inner">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                Regulamento da SancaMat
+            </h1>
+            <p class="text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-6">
+                Normas, diretrizes e critérios estabelecidos pela Comissão Organizadora para a Olimpíada São-Carlense de Matemática.
+            </p>
+            <!-- Botão para Download do PDF Completo -->
+            <a href="caminho/Regulamento_SancaMat_2026.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-laranja text-white border-2 border-laranja font-display font-bold py-2.5 px-6 rounded-sm hover:bg-laranja/90 transition shadow-sm text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primaria">
+                Baixar Regulamento Completo em PDF<span class="sr-only"> (abre em nova aba)</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="conteudo" class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full space-y-4">
+
+        <!-- Tópico 1: Natureza e Objetivos -->
+        <details id="topico-1" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+            <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                <span>1. Da Natureza e dos Objetivos</span>
+                <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                <p><strong>1.1.</strong> A Olimpíada São-Carlense de Matemática (SancaMat) é uma atividade de extensão universitária organizada pelo Núcleo de Estudos de Matemática Olímpica (NEMO), grupo vinculado ao Instituto de Ciências Matemáticas e de Computação (ICMC) da Universidade de São Paulo (USP).</p>
+                <p><strong>1.2.</strong> A competição tem como objetivos estimular o estudo da Matemática por meio da resolução de problemas, identificar jovens talentos no município de São Carlos e estreitar o vínculo entre as escolas de educação básica e a universidade pública.</p>
+            </div>
+        </details>
+
+        <!-- Tópico 2: Participantes e Níveis -->
+        <details id="topico-2" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+            <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                <span>2. Dos Participantes e Níveis</span>
+                <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                <p><strong>2.1.</strong> Podem participar estudantes regularmente matriculados no Ensino Fundamental II ou no Ensino Médio em instituições de ensino públicas ou privadas localizadas no município de São Carlos (SP), inscritos obrigatoriamente por suas escolas.</p>
+                <p><strong>2.2.</strong> A competição é dividida em três níveis:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Nível 1:</strong> 6º ou 7º ano do Ensino Fundamental.</li>
+                    <li><strong>Nível 2:</strong> 8º ou 9º ano do Ensino Fundamental.</li>
+                    <li><strong>Nível 3:</strong> Ensino Médio (regular, técnico integrado ou EJA).</li>
+                </ul>
+                <p><strong>2.3.</strong> É vedada a participação de quem já concluiu o Ensino Médio ou possui matrícula em ensino superior.</p>
+            </div>
+        </details>
+
+        <!-- Tópico 3: Inscrições -->
+        <details id="topico-3" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+            <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                <span>3. Das Inscrições (Exclusivo por Escola)</span>
+                <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                <p><strong>3.1.</strong> A participação na SancaMat é 100% gratuita.</p>
+                <p><strong>3.2.</strong> Não há inscrições individuais (avulsas). As inscrições são feitas exclusivamente pelas escolas através do Professor Coordenador designado.</p>
+                <p><strong>3.3.</strong> O cadastro inicial exige apenas os dados da escola (CNPJ e Código INEP) e do professor responsável, dispensando o cadastro nominal prévio dos alunos para a 1ª Fase.</p>
+            </div>
+        </details>
+
+        <!-- Tópico 4: Estrutura das Provas -->
+        <details id="topico-4" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+            <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                <span>4. Da Estrutura e Calendário das Provas</span>
+                <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                <p><strong>4.1. Primeira Fase (Eliminatória — Nas Escolas):</strong> Prova objetiva de 10 questões de múltipla escolha (5 alternativas), com duração de 2 horas. Aplicada e corrigida internamente pela escola.</p>
+                <p><strong>4.2. Segunda Fase (Final — No ICMC-USP):</strong> Prova discursiva em dia único, composta por 4 questões abertas, com duração de 4 horas, realizada presencialmente no campus da USP em São Carlos.</p>
+            </div>
+        </details>
+
+        <!-- Tópico 5: Conduta e Materiais -->
+        <details id="topico-5" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+            <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                <span>5. Das Regras de Conduta e Correção Cega</span>
+                <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                <p><strong>5.1.</strong> É permitido o uso de lápis, caneta azul/preta, borracha, régua, compasso e transferidor. É estritamente proibido o uso de celulares, calculadoras ou relógios inteligentes.</p>
+                <p><strong>5.2. Correção Cega:</strong> Para garantir imparcialidade na 2ª Fase, as folhas de resposta utilizam código numérico. Identificar a prova com nome ou nome da escola fora da folha de rosto acarreta nota zero na questão.</p>
+            </div>
+        </details>
+
+        <!-- Tópico 6: Premiação -->
+        <details id="topico-6" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+            <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                <span>6. Da Classificação, Desempate e Premiação</span>
+                <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                <p><strong>6.1.</strong> A classificação final é determinada exclusivamente pela nota da 2ª Fase. A 1ª Fase serve apenas como eliminatória e critério de desempate.</p>
+                <p><strong>6.2. Premiação Geral (63 Medalhas):</strong> Serão distribuídas por nível 3 medalhas de Ouro, 6 de Prata e 12 de Bronze, além de Menções Honrosas.</p>
+                <p><strong>6.3. Destaque da Rede Pública:</strong> Destinado a estudantes de escolas públicas não seletivas. Concede 1 Troféu de Destaque e Certificados de Honra ao Mérito aos 10 melhores colocados da rede pública em cada nível (cumulativo com as medalhas gerais).</p>
+            </div>
+        </details>
+
+        <!-- Tópico 7: Disposições Finais -->
+        <details id="topico-7" class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group scroll-mt-4">
+            <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                <span>7. Atendimento Especializado e Disposições Finais</span>
+                <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-3 text-sm sm:text-base leading-relaxed">
+                <p><strong>7.1.</strong> Candidatos com deficiência (PcD), transtornos do neurodesenvolvimento (TEA/TDAH) ou sabatistas disporão de condições especiais na 2ª Fase mediante solicitação prévia e envio de laudo comprobatório.</p>
+                <p><strong>7.2.</strong> Os casos omissos neste Regulamento serão resolvidos de forma soberana pela Comissão Organizadora da SancaMat.</p>
+            </div>
+        </details>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-texto text-fundo py-10 mt-auto border-t-4 border-laranja">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Contatos (Esquerda) -->
+            <div class="mb-8 md:mb-0 text-center md:text-left flex flex-col space-y-4">
+                <div>
+                    <p class="font-display font-bold text-xl text-secundaria tracking-tight mb-2">SancaMat</p>
+                    <p class="text-sm text-fundo/70">Olimpíada São-Carlense de Matemática</p>
+                    <p class="text-sm text-fundo/70">Núcleo de Estudos de Matemática Olímpica</p>
+                    <p class="text-sm text-fundo/70">Instituto de Ciências Matemáticas e de Computação</p>
+                    <p class="text-sm text-fundo/70">Universidade de São Paulo</p>
+                </div>
+                <div class="text-sm space-y-1 mt-4">
+                    <p>E-mail: <a href="mailto:[EMAIL_OFICIAL]" class="hover:text-secundaria transition">[EMAIL_OFICIAL]</a></p>
+                    <p>Instagram: <a href="LINK_DO_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="text-secundaria hover:text-white transition">[@PERFIL_INSTAGRAM]<span class="sr-only"> (abre em nova aba)</span></a></p>
+                </div>
+            </div>
+
+            <!-- Logos das Instituições (Direita) -->
+            <div class="flex flex-wrap justify-center items-center gap-6 bg-white p-4 rounded-sm">
+                <img src="caminho/logo-nemo.png" alt="Logo NEMO" class="h-16 sm:h-20 object-contain">
+                <img src="caminho/logo-icmc.png" alt="Logo ICMC" class="h-16 sm:h-20 object-contain">
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Abre automaticamente o tópico quando a URL traz uma âncora (ex.: regulamento.html#topico-7) -->
+    <script>
+        function abrirSecaoDaAncora() {
+            const id = decodeURIComponent(window.location.hash.slice(1));
+            const alvo = id ? document.getElementById(id) : null;
+            if (alvo && alvo.tagName === 'DETAILS') {
+                alvo.open = true;
+                alvo.scrollIntoView();
+            }
+        }
+        window.addEventListener('load', abrirSecaoDaAncora);
+        window.addEventListener('hashchange', abrirSecaoDaAncora);
+    </script>
+
+</body>
+</html>

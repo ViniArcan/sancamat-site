@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SancaMat</title>
+    <meta name="description" content="Cadernos de prova, gabaritos oficiais, lista de classificados e quadro de medalhistas da SancaMat — Olimpíada São-Carlense de Matemática (NEMO - ICMC/USP).">
+    
+    <!-- Metadados para compartilhamento em WhatsApp / Redes Sociais (Open Graph) -->
+    <meta property="og:title" content="Provas e Resultados | SancaMat — Olimpíada São-Carlense de Matemática">
+    <meta property="og:description" content="Acesse as provas, gabaritos comentados, convocados para a 2ª Fase e lista de premiados da SancaMat. Organização: NEMO — ICMC/USP.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="caminho/logo-sancamat.png">
+
+    <!-- Logo na aba do navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="caminho/logo-simplificada.png">
+    
+    <!-- Importação de Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fundo: '#FFF8E7',      /* Cosmic Latte */
+                        secundaria: '#91B4FF', /* Infinite temperature blue */
+                        primaria: '#0047AB',   /* Cobalto / Azul escuro */
+                        verde: '#00A36C',      /* Espectro Cobre */
+                        laranja: '#E25822',    /* Cálcio / Cor do NEMO */
+                        texto: '#16161D'       /* Eigengrau */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'], 
+                    }
+                }
+            }
+        }
+
+        // Abre/fecha o menu mobile e informa o estado a leitores de tela (aria-expanded)
+        function toggleMenu() {
+            const menu = document.getElementById('menu-mobile');
+            const botao = document.getElementById('botao-menu');
+            const aberto = menu.classList.toggle('hidden') === false;
+            botao.setAttribute('aria-expanded', String(aberto));
+        }
+    </script>
+</head>
+<body class="bg-fundo text-texto flex flex-col min-h-screen font-sans">
+
+    <!-- Link de atalho para teclado/leitores de tela (visível apenas ao receber foco) -->
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-primaria focus:font-display focus:font-bold focus:py-2 focus:px-4 focus:rounded-sm focus:shadow-md">
+        Pular para o conteúdo
+    </a>
+
+    <!-- Navegação -->
+    <nav class="bg-texto text-white shadow-md border-b-4 border-laranja relative" aria-label="Navegação principal">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logo Simplificada + Nome (Clicável para voltar ao Início) -->
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-90 transition">
+                <img src="caminho/logo-simplificada.png" alt="Ícone SancaMat" class="h-8 w-8 object-contain bg-white/10 rounded-sm">
+                <span class="font-display font-bold text-2xl tracking-tight">SancaMat</span>
+            </a>
+            
+            <!-- Botão Menu Mobile -->
+            <button id="botao-menu" onclick="toggleMenu()" aria-label="Abrir menu de navegação" aria-controls="menu-mobile" aria-expanded="false" class="md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-secundaria rounded-sm hover:text-secundaria transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Links Desktop -->
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" class="hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" class="hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" aria-current="page" class="text-secundaria font-semibold border-b-2 border-secundaria pb-0.5">Provas e Resultados</a>
+                <a href="contato.html" class="hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+
+        <!-- Links Mobile (Dropdown) -->
+        <div id="menu-mobile" class="hidden md:hidden absolute w-full bg-texto border-t border-white/10 z-50">
+            <div class="flex flex-col px-4 pt-2 pb-4 space-y-2 shadow-lg">
+                <a href="index.html" class="block py-2 hover:text-secundaria transition">Início</a>
+                <a href="inscricao.html" class="block py-2 hover:text-secundaria transition">Inscrição</a>
+                <a href="regulamento.html" class="block py-2 hover:text-secundaria transition">Regulamento</a>
+                <a href="preparacao.html" class="block py-2 hover:text-secundaria transition">Como se Preparar</a>
+                <a href="resultados.html" aria-current="page" class="block py-2 text-secundaria font-semibold">Provas e Resultados</a>
+                <a href="contato.html" class="block py-2 hover:text-secundaria transition">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho da Página -->
+    <header class="w-full bg-primaria text-white py-12 shadow-inner">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="font-display text-xs font-bold text-white tracking-widest uppercase mb-2">Edição — 2027</p>
+            <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                Provas, Gabaritos e Resultados
+            </h1>
+            <p class="text-white text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                Mural de divulgação de cadernos de questões, padrões de resposta, listas de convocados e quadro de medalhistas.
+            </p>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="conteudo" class="flex-grow max-w-6xl mx-auto px-4 py-12 w-full space-y-16">
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 1: CONVOCAÇÃO 2ª FASE E CERTIFICADOS -->
+        <!-- ========================================== -->
+        <section>
+            <div class="mb-6">
+                <h2 class="font-display text-2xl font-bold text-primaria tracking-tight mb-2">
+                    1. Comunicados Oficiais e Listas de Convocação
+                </h2>
+                <p class="text-texto/80 text-sm sm:text-base leading-relaxed">
+                    Os documentos abaixo serão liberados conforme as datas previstas no Calendário Oficial da competição.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Classificados 2ª Fase -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block bg-gray-100 text-texto/70 border border-gray-300 font-display text-xs font-bold px-3 py-1 rounded-sm mb-3">
+                            Divulgação: [DD/MM]
+                        </span>
+                        <h3 class="font-display text-lg font-bold text-primaria mb-2">Classificados para a 2ª Fase</h3>
+                        <p class="text-sm text-texto/80 leading-relaxed mb-6">
+                            Notas de corte e lista nominal dos estudantes convocados por escola e nível.
+                        </p>
+                    </div>
+                    <!-- Para ativar: substitua o <span> pelo <a> comentado -->
+                    <span class="w-full text-center bg-gray-200 text-texto/50 font-display font-bold py-2.5 px-4 rounded-sm text-sm cursor-not-allowed">
+                        Aguardando publicação
+                    </span>
+                    <!--
+                    <a href="caminho/classificados-2fase.pdf" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-2.5 px-4 rounded-sm hover:bg-secundaria/10 transition text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Baixar Lista (PDF)<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                    -->
+                </div>
+
+                <!-- Ensalamento ICMC -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block bg-gray-100 text-texto/70 border border-gray-300 font-display text-xs font-bold px-3 py-1 rounded-sm mb-3">
+                            Divulgação: [DD/MM]
+                        </span>
+                        <h3 class="font-display text-lg font-bold text-primaria mb-2">Ensalamento (2ª Fase no ICMC)</h3>
+                        <p class="text-sm text-texto/80 leading-relaxed mb-6">
+                            Distribuição dos candidatos por sala e bloco no Campus 1 da USP São Carlos e orientações de acesso.
+                        </p>
+                    </div>
+                    <span class="w-full text-center bg-gray-200 text-texto/50 font-display font-bold py-2.5 px-4 rounded-sm text-sm cursor-not-allowed">
+                        Aguardando publicação
+                    </span>
+                    <!--
+                    <a href="caminho/ensalamento-icmc.pdf" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-white text-primaria border-2 border-primaria font-display font-bold py-2.5 px-4 rounded-sm hover:bg-secundaria/10 transition text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Consultar Locais e Salas (PDF)<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                    -->
+                </div>
+
+                <!-- Emissão de Certificados -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block bg-gray-100 text-texto/70 border border-gray-300 font-display text-xs font-bold px-3 py-1 rounded-sm mb-3">
+                            Disponível até: [DD/MM]
+                        </span>
+                        <h3 class="font-display text-lg font-bold text-primaria mb-2">Certificados Digitais</h3>
+                        <p class="text-sm text-texto/80 leading-relaxed mb-6">
+                            Certificados de premiação, participação na 2ª Fase e coordenação escolar organizados por instituição.
+                        </p>
+                    </div>
+                    <span class="w-full text-center bg-gray-200 text-texto/50 font-display font-bold py-2.5 px-4 rounded-sm text-sm cursor-not-allowed">
+                        Disponível após a Premiação
+                    </span>
+                    <!--
+                    <a href="LINK_PASTA_CERTIFICADOS" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-laranja text-white border-2 border-laranja font-display font-bold py-2.5 px-4 rounded-sm hover:bg-laranja/90 transition text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        Acessar Certificados<span class="sr-only"> (abre em nova aba)</span>
+                    </a>
+                    -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 2: CADERNOS DE PROVA E GABARITOS -->
+        <!-- ========================================== -->
+        <section>
+            <div class="mb-6">
+                <h2 class="font-display text-2xl font-bold text-primaria tracking-tight mb-2">
+                    2. Cadernos de Prova e Padrões de Resposta
+                </h2>
+                <p class="text-texto/80 text-sm sm:text-base leading-relaxed">
+                    Os arquivos abaixo serão publicados após o encerramento da janela de aplicação de cada fase.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Provas Nível 1 -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40">
+                    <div class="mb-4 pb-3 border-b border-secundaria flex justify-between items-center">
+                        <h3 class="font-display text-xl font-bold text-primaria">Nível 1</h3>
+                        <span class="text-xs font-semibold text-texto/60">6º e 7º anos (EF)</span>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <p class="font-display font-bold text-texto mb-2">1ª Fase (Objetiva)</p>
+                            <div class="flex flex-col space-y-2">
+                                <!-- Substituir <span> por <a href="..." class="text-primaria underline hover:text-laranja font-medium"> quando publicado -->
+                                <span class="text-texto/50">• Caderno de Questões</span>
+                                <span class="text-texto/50">• Gabarito Oficial</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-secundaria">
+                            <p class="font-display font-bold text-texto mb-2">2ª Fase (Discursiva)</p>
+                            <div class="flex flex-col space-y-2">
+                                <span class="text-texto/50">• Caderno de Prova</span>
+                                <span class="text-texto/50">• Padrão de Respostas e Critérios de Correção</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provas Nível 2 -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40">
+                    <div class="mb-4 pb-3 border-b border-secundaria flex justify-between items-center">
+                        <h3 class="font-display text-xl font-bold text-primaria">Nível 2</h3>
+                        <span class="text-xs font-semibold text-texto/60">8º e 9º anos (EF)</span>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <p class="font-display font-bold text-texto mb-2">1ª Fase (Objetiva)</p>
+                            <div class="flex flex-col space-y-2">
+                                <span class="text-texto/50">• Caderno de Questões</span>
+                                <span class="text-texto/50">• Gabarito Oficial</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-secundaria">
+                            <p class="font-display font-bold text-texto mb-2">2ª Fase (Discursiva)</p>
+                            <div class="flex flex-col space-y-2">
+                                <span class="text-texto/50">• Caderno de Prova</span>
+                                <span class="text-texto/50">• Padrão de Respostas e Critérios de Correção</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provas Nível 3 -->
+                <div class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40">
+                    <div class="mb-4 pb-3 border-b border-secundaria flex justify-between items-center">
+                        <h3 class="font-display text-xl font-bold text-primaria">Nível 3</h3>
+                        <span class="text-xs font-semibold text-texto/60">Ensino Médio</span>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <p class="font-display font-bold text-texto mb-2">1ª Fase (Objetiva)</p>
+                            <div class="flex flex-col space-y-2">
+                                <span class="text-texto/50">• Caderno de Questões</span>
+                                <span class="text-texto/50">• Gabarito Oficial</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-secundaria">
+                            <p class="font-display font-bold text-texto mb-2">2ª Fase (Discursiva)</p>
+                            <div class="flex flex-col space-y-2">
+                                <span class="text-texto/50">• Caderno de Prova</span>
+                                <span class="text-texto/50">• Padrão de Respostas e Critérios de Correção</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Faixa Especial: Melhores Soluções dos Alunos -->
+            <div class="mt-6 bg-white border-l-4 border-primaria p-6 rounded-sm shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h3 class="font-display text-lg font-bold text-primaria">Melhores Soluções dos Estudantes</h3>
+                    <p class="text-sm text-texto/80 mt-1">
+                        Compilação organizada pela Banca do NEMO destacando as resoluções mais criativas e elegantes submetidas pelos participantes na 2ª Fase (Item 11.1 do Regulamento).
+                    </p>
+                </div>
+                <span class="w-full sm:w-auto text-center shrink-0 bg-gray-200 text-texto/50 font-display font-bold py-2.5 px-6 rounded-sm text-sm cursor-not-allowed">
+                    Publicação Pós-Evento
+                </span>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SEÇÃO 3: QUADRO DE PREMIADOS E MEDALHISTAS -->
+        <!-- ========================================== -->
+        <section>
+            <div class="mb-6">
+                <h2 class="font-display text-2xl font-bold text-primaria tracking-tight mb-2">
+                    3. Quadro Oficial de Premiados (Edição — 2027)
+                </h2>
+                <p class="text-texto/80 text-sm sm:text-base leading-relaxed">
+                    Clique em cada nível abaixo para consultar a lista de estudantes premiados na Classificação Geral e no Destaque da Rede Pública.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- Premiados Nível 1 -->
+                <details class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Premiados — Nível 1 (6º e 7º anos do Ensino Fundamental)</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-4 text-sm sm:text-base">
+                        <p class="italic text-texto/60">O quadro nominal de medalhistas será publicado em [DD/MM], conforme o Calendário Oficial.</p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-fundo p-4 rounded-sm border border-secundaria/30">
+                                <h4 class="font-display font-bold text-primaria mb-2">Premiação Geral (Nível 1)</h4>
+                                <ul class="space-y-1 text-sm text-texto/90">
+                                    <li><strong>Medalha de Ouro:</strong> 3 premiados (1º ao 3º lugar)</li>
+                                    <li><strong>Medalha de Prata:</strong> 6 premiados (4º ao 9º lugar)</li>
+                                    <li><strong>Medalha de Bronze:</strong> 12 premiados (10º ao 21º lugar)</li>
+                                    <li><strong>Menção Honrosa:</strong> Conforme critério da banca</li>
+                                </ul>
+                            </div>
+                            <div class="bg-fundo p-4 rounded-sm border border-secundaria/30">
+                                <h4 class="font-display font-bold text-primaria mb-2">Destaque da Rede Pública (Nível 1)</h4>
+                                <ul class="space-y-1 text-sm text-texto/90">
+                                    <li><strong>Troféu Destaque da Rede Pública:</strong> 1º colocado de escola pública não seletiva</li>
+                                    <li><strong>Certificado de Honra ao Mérito:</strong> Top 10 estudantes de escolas públicas não seletivas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Premiados Nível 2 -->
+                <details class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Premiados — Nível 2 (8º e 9º anos do Ensino Fundamental)</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-4 text-sm sm:text-base">
+                        <p class="italic text-texto/60">O quadro nominal de medalhistas será publicado em [DD/MM], conforme o Calendário Oficial.</p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-fundo p-4 rounded-sm border border-secundaria/30">
+                                <h4 class="font-display font-bold text-primaria mb-2">Premiação Geral (Nível 2)</h4>
+                                <ul class="space-y-1 text-sm text-texto/90">
+                                    <li><strong>Medalha de Ouro:</strong> 3 premiados (1º ao 3º lugar)</li>
+                                    <li><strong>Medalha de Prata:</strong> 6 premiados (4º ao 9º lugar)</li>
+                                    <li><strong>Medalha de Bronze:</strong> 12 premiados (10º ao 21º lugar)</li>
+                                    <li><strong>Menção Honrosa:</strong> Conforme critério da banca</li>
+                                </ul>
+                            </div>
+                            <div class="bg-fundo p-4 rounded-sm border border-secundaria/30">
+                                <h4 class="font-display font-bold text-primaria mb-2">Destaque da Rede Pública (Nível 2)</h4>
+                                <ul class="space-y-1 text-sm text-texto/90">
+                                    <li><strong>Troféu Destaque da Rede Pública:</strong> 1º colocado de escola pública não seletiva</li>
+                                    <li><strong>Certificado de Honra ao Mérito:</strong> Top 10 estudantes de escolas públicas não seletivas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Premiados Nível 3 -->
+                <details class="bg-white p-6 rounded-sm shadow-sm border border-secundaria/40 group">
+                    <summary class="font-display text-lg font-bold text-primaria cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaria focus-visible:ring-offset-2">
+                        <span>Premiados — Nível 3 (Ensino Médio)</span>
+                        <span aria-hidden="true" class="text-laranja shrink-0 ml-4 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-texto/80 space-y-4 text-sm sm:text-base">
+                        <p class="italic text-texto/60">O quadro nominal de medalhistas será publicado em [DD/MM], conforme o Calendário Oficial.</p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-fundo p-4 rounded-sm border border-secundaria/30">
+                                <h4 class="font-display font-bold text-primaria mb-2">Premiação Geral (Nível 3)</h4>
+                                <ul class="space-y-1 text-sm text-texto/90">
+                                    <li><strong>Medalha de Ouro:</strong> 3 premiados (1º ao 3º lugar)</li>
+                                    <li><strong>Medalha de Prata:</strong> 6 premiados (4º ao 9º lugar)</li>
+                                    <li><strong>Medalha de Bronze:</strong> 12 premiados (10º ao 21º lugar)</li>
+                                    <li><strong>Menção Honrosa:</strong> Conforme critério da banca</li>
+                                </ul>
+                            </div>
+                            <div class="bg-fundo p-4 rounded-sm border border-secundaria/30">
+                                <h4 class="font-display font-bold text-primaria mb-2">Destaque da Rede Pública (Nível 3)</h4>
+                                <ul class="space-y-1 text-sm text-texto/90">
+                                    <li><strong>Troféu Destaque da Rede Pública:</strong> 1º colocado de escola pública não seletiva</li>
+                                    <li><strong>Certificado de Honra ao Mérito:</strong> Top 10 estudantes de escolas públicas não seletivas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-texto text-fundo py-10 mt-auto border-t-4 border-laranja">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <!-- Contatos (Esquerda) -->
+            <div class="mb-8 md:mb-0 text-center md:text-left flex flex-col space-y-4">
+                <div>
+                    <p class="font-display font-bold text-xl text-secundaria tracking-tight mb-2">SancaMat</p>
+                    <p class="text-sm text-fundo/70">Olimpíada São-Carlense de Matemática</p>
+                    <p class="text-sm text-fundo/70">Núcleo de Estudos de Matemática Olímpica</p>
+                    <p class="text-sm text-fundo/70">Instituto de Ciências Matemáticas e de Computação</p>
+                    <p class="text-sm text-fundo/70">Universidade de São Paulo</p>
+                </div>
+                <div class="text-sm space-y-1 mt-4">
+                    <p>E-mail: <a href="mailto:[EMAIL_OFICIAL]" class="hover:text-secundaria transition">[EMAIL_OFICIAL]</a></p>
+                    <p>Instagram: <a href="LINK_DO_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="text-secundaria hover:text-white transition">[@PERFIL_INSTAGRAM]<span class="sr-only"> (abre em nova aba)</span></a></p>
+                </div>
+            </div>
+
+            <!-- Logos das Instituições (Direita) -->
+            <div class="flex flex-wrap justify-center items-center gap-6 bg-white p-4 rounded-sm">
+                <img src="caminho/logo-nemo.png" alt="Logo NEMO" class="h-16 sm:h-20 object-contain">
+                <img src="caminho/logo-icmc.png" alt="Logo ICMC" class="h-16 sm:h-20 object-contain">
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
